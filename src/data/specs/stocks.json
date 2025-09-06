@@ -1,0 +1,5 @@
+[
+  {"instrument":"Apple (AAPL)","contractSize":1,"minTradeSize":1,"maxTradeSize":5000,"minSpread":0.01,"maxLeverage":"20:1","symbol":"NASDAQ:AAPL"},
+  {"instrument":"Microsoft (MSFT)","contractSize":1,"minTradeSize":1,"maxTradeSize":5000,"minSpread":0.01,"maxLeverage":"20:1","symbol":"NASDAQ:MSFT"},
+  {"instrument":"Tesla (TSLA)","contractSize":1,"minTradeSize":1,"maxTradeSize":5000,"minSpread":0.01,"maxLeverage":"20:1","symbol":"NASDAQ:TSLA"}
+]

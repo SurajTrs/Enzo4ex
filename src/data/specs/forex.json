@@ -1,0 +1,18 @@
+[
+  {"instrument":"EUR/USD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.1,"maxLeverage":"500:1","symbol":"OANDA:EURUSD","type":"Major"},
+  {"instrument":"USD/JPY","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.4,"maxLeverage":"500:1","symbol":"OANDA:USDJPY","type":"Major"},
+  {"instrument":"GBP/USD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.3,"maxLeverage":"500:1","symbol":"OANDA:GBPUSD","type":"Major"},
+  {"instrument":"USD/CHF","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.5,"maxLeverage":"500:1","symbol":"OANDA:USDCHF","type":"Major"},
+  {"instrument":"USD/CAD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:USDCAD","type":"Major"},
+  {"instrument":"AUD/USD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.1,"maxLeverage":"500:1","symbol":"OANDA:AUDUSD","type":"Major"},
+  {"instrument":"CAD/JPY","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:CADJPY","type":"Minor"},
+  {"instrument":"CHF/JPY","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:CHFJPY","type":"Minor"},
+  {"instrument":"EUR/CAD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:EURCAD","type":"Minor"},
+  {"instrument":"EUR/CHF","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:EURCHF","type":"Minor"},
+  {"instrument":"EUR/GBP","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.1,"maxLeverage":"500:1","symbol":"OANDA:EURGBP","type":"Minor"},
+  {"instrument":"EUR/JPY","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:EURJPY","type":"Minor"},
+  {"instrument":"GBP/CAD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:GBPCAD","type":"Minor"},
+  {"instrument":"GBP/CHF","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:GBPCHF","type":"Minor"},
+  {"instrument":"GBP/JPY","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:GBPJPY","type":"Minor"},
+  {"instrument":"NZD/USD","contractSize":100000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":1.2,"maxLeverage":"500:1","symbol":"OANDA:NZDUSD","type":"Major"}
+]

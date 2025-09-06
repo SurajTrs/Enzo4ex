@@ -1,0 +1,7 @@
+[
+  {"instrument":"Gold","contractSize":100,"minTradeSize":0.01,"maxTradeSize":100,"minSpread":0.06,"maxLeverage":"500:1","symbol":"OANDA:XAUUSD"},
+  {"instrument":"Silver","contractSize":5000,"minTradeSize":0.01,"maxTradeSize":100,"minSpread":0.5,"maxLeverage":"200:1","symbol":"OANDA:XAGUSD"},
+  {"instrument":"WTI Crude","contractSize":1000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":0.03,"maxLeverage":"200:1","symbol":"OANDA:WTICOUSD"},
+  {"instrument":"Brent Crude","contractSize":1000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":0.03,"maxLeverage":"200:1","symbol":"OANDA:BCOUSD"},
+  {"instrument":"Natural Gas","contractSize":10000,"minTradeSize":0.01,"maxTradeSize":50,"minSpread":0.01,"maxLeverage":"200:1","symbol":"OANDA:NATGASUSD"}
+]

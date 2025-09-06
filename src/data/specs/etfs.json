@@ -1,0 +1,5 @@
+[
+  {"instrument":"SPDR S&P 500 (SPY)","contractSize":1,"minTradeSize":1,"maxTradeSize":10000,"minSpread":0.01,"maxLeverage":"10:1","symbol":"AMEX:SPY"},
+  {"instrument":"Vanguard S&P 500 (VOO)","contractSize":1,"minTradeSize":1,"maxTradeSize":10000,"minSpread":0.01,"maxLeverage":"10:1","symbol":"AMEX:VOO"},
+  {"instrument":"Invesco QQQ (QQQ)","contractSize":1,"minTradeSize":1,"maxTradeSize":10000,"minSpread":0.01,"maxLeverage":"10:1","symbol":"NASDAQ:QQQ"}
+]

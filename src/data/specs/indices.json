@@ -1,0 +1,6 @@
+[
+  {"instrument":"US30","contractSize":1,"minTradeSize":0.1,"maxTradeSize":50,"minSpread":1.0,"maxLeverage":"200:1","symbol":"OANDA:US30USD"},
+  {"instrument":"SPX500","contractSize":1,"minTradeSize":0.1,"maxTradeSize":50,"minSpread":0.5,"maxLeverage":"200:1","symbol":"OANDA:SPX500USD"},
+  {"instrument":"NAS100","contractSize":1,"minTradeSize":0.1,"maxTradeSize":50,"minSpread":1.0,"maxLeverage":"200:1","symbol":"OANDA:NAS100USD"},
+  {"instrument":"UK100","contractSize":1,"minTradeSize":0.1,"maxTradeSize":50,"minSpread":1.5,"maxLeverage":"200:1","symbol":"OANDA:UK100GBP"}
+]

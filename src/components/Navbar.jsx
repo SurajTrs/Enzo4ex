@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, Search, Globe } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { navigationData } from "../data/navigationData";
 
@@ -13,6 +14,7 @@ export default function Navbar() {
   const closeTimeoutRef = useRef(null);
   const navContainerRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const navigate = useNavigate();
 
   // Handle scroll effect
   useEffect(() => {
@@ -128,14 +130,13 @@ export default function Navbar() {
                       } sm:grid-cols-2 md:grid-cols-3`}
                     >
                       {section.items.map((item, itemIdx) => (
-                        <a
+                        <Link
                           key={itemIdx}
-                          href="#"
+                          to={item.link || `/${menuName.toLowerCase()}/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                           className="dropdown-item group p-4 block rounded-lg transition-all duration-200 hover:bg-white/10"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            console.log(`Navigating to: ${item.name}`);
+                          onClick={() => {
                             setOpenDropdown(null);
+                            setMobileOpen(false);
                           }}
                         >
                           <div className="flex items-start gap-4">
@@ -151,7 +152,7 @@ export default function Navbar() {
                               </p>
                             </div>
                           </div>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -178,14 +179,14 @@ export default function Navbar() {
           style={{ height: "72px" }}
         >
           <div className="flex items-center">
-            <a href="#" className="flex-shrink-0">
+            <Link to="/" className="flex-shrink-0">
               <img
                 src={assets.logo}
                 alt="ThinkMarkets"
                 className="h-10 sm:h-12 md:h-14 lg:h-26 w-auto"
                 loading="lazy"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu - unchanged */}
@@ -213,14 +214,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right side - Desktop - unchanged */}
+          {/* Right side - Desktop */}
           <div className="hidden lg:flex items-center justify-center gap-5">
-            <button className="btn-secondary px-6 py-2 text-sm font-medium text-white rounded-full border border-white/20 hover:bg-white/20 transition-all duration-200">
+            <Link to="/login" className="btn-secondary px-6 py-2 text-sm font-medium text-white rounded-full border border-white/20 hover:bg-white/20 transition-all duration-200 inline-block text-center">
               Login
-            </button>
-            <button className="btn px-6 py-2 text-sm font-bold text-white rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-500/20 transition-all duration-200">
+            </Link>
+            <Link to="/register" className="btn px-6 py-2 text-sm font-bold text-white rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-500/20 transition-all duration-200 inline-block text-center">
               Register
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -299,15 +300,13 @@ export default function Navbar() {
                             }
                           >
                             {section.items.map((subItem, itemIdx) => (
-                              <a
+                              <Link
                                 key={itemIdx}
-                                href="#"
+                                to={subItem.link || `/${openDropdown.toLowerCase()}/${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
                                 className={`flex items-center gap-3 p-3 text-sm rounded-lg hover:bg-white/10 transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-purple-500 ${
                                   isLargeList ? "snap-start mb-2" : ""
                                 }`}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  console.log(`Navigating to: ${subItem.name}`);
+                                onClick={() => {
                                   setMobileOpen(false);
                                   setOpenDropdown(null);
                                 }}
@@ -325,7 +324,7 @@ export default function Navbar() {
                                     </div>
                                   )}
                                 </div>
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
@@ -352,12 +351,12 @@ export default function Navbar() {
                   <Globe className="w-5 h-5 mx-auto" />
                 </button>
               </div>
-              <button className="w-full px-4 py-3 text-sm font-medium text-white rounded-full border border-white/20 hover:bg-white/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
+              <Link to="/login" className="block w-full px-4 py-3 text-sm font-medium text-white text-center rounded-full border border-white/20 hover:bg-white/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
                 Login
-              </button>
-              <button className="w-full px-4 py-3 text-sm font-bold text-white rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-500/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
+              </Link>
+              <Link to="/register" className="block w-full px-4 py-3 text-sm font-bold text-white text-center rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-500/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500">
                 Register
-              </button>
+              </Link>
             </div>
           </div>
         </div>

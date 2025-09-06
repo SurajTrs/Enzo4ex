@@ -1,0 +1,5 @@
+[
+  {"instrument":"Bitcoin (BTCUSD)","contractSize":1,"minTradeSize":0.01,"maxTradeSize":100,"minSpread":5,"maxLeverage":"400:1","symbol":"OANDA:BTCUSD"},
+  {"instrument":"Ethereum (ETHUSD)","contractSize":1,"minTradeSize":0.01,"maxTradeSize":100,"minSpread":1,"maxLeverage":"400:1","symbol":"OANDA:ETHUSD"},
+  {"instrument":"Dogecoin (DOGEUSD)","contractSize":1,"minTradeSize":1,"maxTradeSize":100000,"minSpread":0.0001,"maxLeverage":"400:1","symbol":"OANDA:DOGEUSD"}
+]

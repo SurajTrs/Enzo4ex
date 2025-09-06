@@ -1,0 +1,5 @@
+[
+  {"instrument":"S&P 500 (ES1!)","contractSize":50,"minTradeSize":1,"maxTradeSize":100,"minSpread":0.25,"maxLeverage":"200:1","symbol":"CME_MINI:ES1!"},
+  {"instrument":"Dow (YM1!)","contractSize":5,"minTradeSize":1,"maxTradeSize":100,"minSpread":1,"maxLeverage":"200:1","symbol":"CBOT_MINI:YM1!"},
+  {"instrument":"Nasdaq (NQ1!)","contractSize":20,"minTradeSize":1,"maxTradeSize":100,"minSpread":0.5,"maxLeverage":"200:1","symbol":"CME_MINI:NQ1!"}
+]

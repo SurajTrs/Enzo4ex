@@ -1,0 +1,164 @@
+{
+  "groups": [
+    {
+      "key": "fx_tier_1",
+      "label": "FX Tier 1",
+      "instruments": ["CADJPY","CHFJPY","EURCAD","EURCHF","EURGBP","EURJPY","EURUSD","GBPCAD","GBPCHF","GBPJPY","GBPUSD","USDCAD","USDCHF","USDJPY"],
+      "tiers": [
+        {"lotRange": "0 - 1", "margin": "0.05%", "leverage": "2000:1"},
+        {"lotRange": "1.01 - 5", "margin": "0.1%", "leverage": "1000:1"},
+        {"lotRange": "5.01 - 100", "margin": "0.2%", "leverage": "500:1"},
+        {"lotRange": "100.01 - 200", "margin": "0.5%", "leverage": "200:1"},
+        {"lotRange": "200.01 - 300", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "300.01 - 500", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "500.01+", "margin": "10%", "leverage": "10:1"}
+      ]
+    },
+    {
+      "key": "fx_tier_2",
+      "label": "FX Tier 2",
+      "instruments": ["AUDCAD","AUDCHF","AUDJPY","AUDNZD","AUDUSD","CADCHF","EURAUD","EURNOK","EURNZD","EURSGD","GBPAUD","GBPNZD","NZDCAD","NZDCHF","NZDJPY","NZDUSD","USDNOK","USDSEK","USDSGD"],
+      "tiers": [
+        {"lotRange": "0 - 5", "margin": "0.1%", "leverage": "1000:1"},
+        {"lotRange": "5.01 - 50", "margin": "0.2%", "leverage": "500:1"},
+        {"lotRange": "50.01 - 100", "margin": "0.5%", "leverage": "200:1"},
+        {"lotRange": "100.01 - 200", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "200.01 - 300", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "300.01 - 500", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "500.01+", "margin": "10%", "leverage": "10:1"}
+      ]
+    },
+    {
+      "key": "fx_tier_3",
+      "label": "FX Tier 3",
+      "instruments": ["EURCZK","EURHUF","EURPLN","EURSEK","EURTRY","EURZAR","USDBRL","USDCNH","USDHKD","USDHUF","USDMXN","USDTRY","USDZAR"],
+      "tiers": [
+        {"lotRange": "0 - 1", "margin": "0.2%", "leverage": "500:1"},
+        {"lotRange": "1.01 - 5", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "5.01 - 50", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "50.01 - 100", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "100.01+", "margin": "10%", "leverage": "10:1"}
+      ]
+    },
+    {
+      "key": "gold_silver",
+      "label": "Gold & Silver",
+      "instruments": ["XAGUSD","XAUEUR","XAUUSD"],
+      "tiers": [
+        {"lotRange": "0 - 10", "margin": "0.2%", "leverage": "500:1"},
+        {"lotRange": "10.01 - 20", "margin": "0.5%", "leverage": "200:1"},
+        {"lotRange": "20.01 - 50", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "50.01 - 100", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "100.01 - 300", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "300.01+", "margin": "10%", "leverage": "10:1"}
+      ]
+    },
+    {
+      "key": "indices",
+      "label": "Indices",
+      "instruments": ["AUS200","ZAR40","CHINA50","ESTX50","FRA40","GER40","HK50","JPN225","NAS100","NETH25","SPAIN35","SPX500","SWI20","TAIEX","UK100","US2000","US30","USDINDEX","VIX"],
+      "tiers": [
+        {"lotRange": "0 - 5", "margin": "0.2%", "leverage": "500:1"},
+        {"lotRange": "5.01 - 200", "margin": "0.5%", "leverage": "200:1"},
+        {"lotRange": "200.01 - 500", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "500.01 - 1000", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "1000.01 - 3000", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "3000.01+", "margin": "10%", "leverage": "10:1"}
+      ]
+    },
+    {
+      "key": "indices_minor",
+      "label": "Indices Minor",
+      "instruments": ["ZAR40"],
+      "tiers": [
+        {"lotRange": "0 to 5", "margin": "0.50%", "leverage": "200:1"},
+        {"lotRange": "5 to 20", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "20 to 50", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "50 to 100", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "100+", "margin": "10%", "leverage": "10:1"}
+      ]
+    },
+    {
+      "key": "commodities",
+      "label": "Commodities",
+      "instruments": ["BRENT","NGAS","WTI","COPPER","XPTUSD"],
+      "tiers": [
+        {"lotRange": "0 - 10", "margin": "0.5%", "leverage": "200:1"},
+        {"lotRange": "10.1 - 20", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "20.1 - 50", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "50.1 - 100", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "100.1 - 300", "margin": "10%", "leverage": "10:1"},
+        {"lotRange": "300.1+", "margin": "20%", "leverage": "5:1"}
+      ]
+    },
+    {
+      "key": "ethusd",
+      "label": "ETHUSD",
+      "instruments": ["ETHUSD"],
+      "tiers": [
+        {"lotRange": "0 - 15", "margin": "0.25%", "leverage": "400:1"},
+        {"lotRange": "15.01 - 50", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "50.01 - 130", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "130.01 - 270", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "270.01+", "margin": "20%", "leverage": "5:1"}
+      ]
+    },
+    {
+      "key": "btcusd",
+      "label": "BTCUSD",
+      "instruments": ["BTCUSD"],
+      "tiers": [
+        {"lotRange": "0 - 1", "margin": "0.25%", "leverage": "400:1"},
+        {"lotRange": "1.01 - 2", "margin": "1%", "leverage": "100:1"},
+        {"lotRange": "2.01 - 5", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "5.01 - 10", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "10+", "margin": "20%", "leverage": "5:1"}
+      ]
+    },
+    {
+      "key": "crypto_tier_1",
+      "label": "Crypto Tier 1",
+      "instruments": ["AVAXUSD","BCHUSD","BNBUSD","LINKUSD","TRUMPUSD","LTCUSD","OMGUSD","SOLUSD","XMRUSD"],
+      "tiers": [
+        {"lotRange": "0 - 5", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "5.01 - 10", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "10.01 - 15", "margin": "10%", "leverage": "10:1"},
+        {"lotRange": "15.01 - 20", "margin": "20%", "leverage": "5:1"},
+        {"lotRange": "20.01 - 25", "margin": "50%", "leverage": "2:1"},
+        {"lotRange": "25.01+", "margin": "100%", "leverage": "1:1"}
+      ]
+    },
+    {
+      "key": "crypto_tier_2",
+      "label": "Crypto Tier 2",
+      "instruments": ["ATOMUSD","ALGOUSD","BATUSD","ADAUSD","MANAUSD","DOGEUSD","EOSUSD","DOTUSD","XRPUSD","XLMUSD","XTZUSD","UNIUSD"],
+      "tiers": [
+        {"lotRange": "0 - 500", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "500.01 - 1000", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "1000.01 - 1500", "margin": "10%", "leverage": "10:1"},
+        {"lotRange": "1500.01 - 2000", "margin": "20%", "leverage": "5:1"},
+        {"lotRange": "2000.01 - 2500", "margin": "50%", "leverage": "2:1"},
+        {"lotRange": "2500.01+", "margin": "100%", "leverage": "1:1"}
+      ]
+    },
+    {
+      "key": "crypto_tier_3",
+      "label": "Crypto Tier 3",
+      "instruments": ["SHIBUSD"],
+      "tiers": [
+        {"lotRange": "0 - 10000", "margin": "2%", "leverage": "50:1"},
+        {"lotRange": "10000.01 - 15000", "margin": "5%", "leverage": "20:1"},
+        {"lotRange": "15000.01 - 20000", "margin": "10%", "leverage": "10:1"},
+        {"lotRange": "20000.01 - 25000", "margin": "20%", "leverage": "5:1"},
+        {"lotRange": "25000.01 - 30000", "margin": "50%", "leverage": "2:1"},
+        {"lotRange": "30000.01+", "margin": "100%", "leverage": "1:1"}
+      ]
+    }
+  ],
+  "notes": [
+    "IMPORTANT: Leverage for all margin tiers is divided by a factor of 4 on Fridays between 20:00 - 21:00 GMT.",
+    "Margins may increase around major events and holidays.",
+    "Only trades opened during a multiplication window are affected; margins revert after the window ends.",
+    "Hedging during multiplication windows applies margin to both legs."
+  ]
+}

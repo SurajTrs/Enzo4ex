@@ -39,7 +39,7 @@ export const navigationData = {
             name: "ETFs",
             icon: "📋",
             description: "Speculate on the price movements of ETFs.",
-            link: "/etfs",
+            link: "/etf",
           },
           {
             name: "Futures",
@@ -89,10 +89,10 @@ export const navigationData = {
         title: "TRADING",
         items: [
           {
-            name: "ThinkTrader",
+            name: "Enzo4exTrader",
             icon: "⭐",
             description: "Our award-winning proprietary CFD trading platform.",
-            link: "/thinktrader",
+            link: "/enzo4ex",
           },
           {
             name: "TradingView",
@@ -112,12 +112,7 @@ export const navigationData = {
             description: "The latest and most advanced MetaTrader platform.",
             link: "/mt5",
           },
-          {
-            name: "Traders' Gym",
-            icon: "💪",
-            description: "Backtest your trading strategies on historical data.",
-            link: "/traders-gym",
-          },
+        
         ],
       },
       {

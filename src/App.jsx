@@ -55,51 +55,51 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
-          <Route path="forex" element={<Forex />} />
-          <Route path="forex/live" element={<ForexLive />} />
+          <Route path="/forex" element={<Forex />} />
+          <Route path="/forex/live" element={<ForexLive />} />
           {/* Add more routes here */}
-          { <Route path="indices" element={<Indices />} /> }
-          <Route path="indices/live" element={<IndicesLive />} />
-          { <Route path="commodities" element={<Commodities />} /> }
-          <Route path="commodities/live" element={<CommoditiesLive />} />
-          { <Route path="stocks" element={<Stocks />} /> }
-          <Route path="stocks/live" element={<StocksLive />} />
-          { <Route path="crypto" element={<Crypto />} /> }
-          <Route path="crypto/live" element={<CryptoLive />} />
-          { <Route path="etf" element={<Etf />} /> }
-          <Route path="etf/live" element={<EtfLive />} />
-          { <Route path="futures" element={<Futures />} /> }
-          <Route path="futures/live" element={<FuturesLive />} />
-          { <Route path="gold" element={<Gold />} /> }
-          <Route path="gold/live" element={<GoldLive />} />
-          { <Route path="synthetic-indices" element={<Synthetic />} /> }
-          <Route path="synthetic-indices/live" element={<SyntheticLive />} />
-          <Route path="classic-leverage" element={<ContractSpecs />} />
-          <Route path="dynamic-leverage" element={<DynamicLeverage />} />
-          <Route path="enzo4ex" element={<Enzo4ex />} />
-          <Route path="Enzo4exTrader" element={<Enzo4ex />} />
-          <Route path="tradingview" element={<TradingView />} />
-          <Route path="mt4" element={<MT4 />} />
-          <Route path="mt5" element={<MT5 />} />
-          <Route path="announcements" element={<Announcements />} />
-          <Route path="announcements/:slug" element={<AnnouncementDetail />} />
-          <Route path="awards" element={<Awards />} />
-          <Route path="awards/:slug" element={<AwardDetail />} />
-          <Route path="account-types" element={<AccountTypesPage />} />
-          <Route path="security-withdrawals" element={<SecurityWithdrawalsPage />} />
-          <Route path="deposit-withdraw" element={<DepositsWithdrawalsPage />} />
-          <Route path="demo-account" element={<DemoPage />} />
-          <Route path="market-news" element={<MarketNewsPage />} />
-          <Route path="economic-calendar" element={<EconomicCalendarPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="support" element={<SupportPage />} />
-          <Route path="help" element={<SupportPage />} />
-          <Route path="awards" element={<Awards />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="reset-password" element={<ResetPasswordPage />} />
-          <Route path="start-trading" element={<StartTradingPage />} />
+          { <Route path="/indices" element={<Indices />} /> }
+          <Route path="/indices/live" element={<IndicesLive />} />
+          { <Route path="/commodities" element={<Commodities />} /> }
+          <Route path="/commodities/live" element={<CommoditiesLive />} />
+          { <Route path="/stocks" element={<Stocks />} /> }
+          <Route path="/stocks/live" element={<StocksLive />} />
+          { <Route path="/crypto" element={<Crypto />} /> }
+          <Route path="/crypto/live" element={<CryptoLive />} />
+          { <Route path="/etf" element={<Etf />} /> }
+          <Route path="/etf/live" element={<EtfLive />} />
+          { <Route path="/futures" element={<Futures />} /> }
+          <Route path="/futures/live" element={<FuturesLive />} />
+          { <Route path="/gold" element={<Gold />} /> }
+          <Route path="/gold/live" element={<GoldLive />} />
+          { <Route path="/synthetic-indices" element={<Synthetic />} /> }
+          <Route path="/synthetic-indices/live" element={<SyntheticLive />} />
+          <Route path="/classic-leverage" element={<ContractSpecs />} />
+          <Route path="/dynamic-leverage" element={<DynamicLeverage />} />
+          <Route path="/enzo4ex" element={<Enzo4ex />} />
+          <Route path="/Enzo4exTrader" element={<Enzo4ex />} />
+          <Route path="/tradingview" element={<TradingView />} />
+          <Route path="/mt4" element={<MT4 />} />
+          <Route path="/mt5" element={<MT5 />} />
+          <Route path="/announcements" element={<Announcements />} />
+          <Route path="/announcements/:slug" element={<AnnouncementDetail />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/awards/:slug" element={<AwardDetail />} />
+          <Route path="/account-types" element={<AccountTypesPage />} />
+          <Route path="/security-withdrawals" element={<SecurityWithdrawalsPage />} />
+          <Route path="/deposit-withdraw" element={<DepositsWithdrawalsPage />} />
+          <Route path="/demo-account" element={<DemoPage />} />
+          <Route path="/market-news" element={<MarketNewsPage />} />
+          <Route path="/economic-calendar" element={<EconomicCalendarPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/help" element={<SupportPage />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/start-trading" element={<StartTradingPage />} />
           {/* <Route path="crypto" element={<Crypto />} /> */}
           {/* <Route path="login" element={<Login />} /> */}
           {/* <Route path="register" element={<Register />} /> */}

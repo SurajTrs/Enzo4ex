@@ -14,6 +14,7 @@ export default function Navbar() {
   const closeTimeoutRef = useRef(null);
   const navContainerRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const mobileToggleRef = useRef(null);
   const navigate = useNavigate();
 
   // Handle scroll effect
@@ -30,7 +31,8 @@ export default function Navbar() {
         navContainerRef.current &&
         !navContainerRef.current.contains(e.target) &&
         mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(e.target)
+        !mobileMenuRef.current.contains(e.target) &&
+        (!mobileToggleRef.current || !mobileToggleRef.current.contains(e.target))
       ) {
         setOpenDropdown(null);
         setMobileOpen(false);
@@ -42,6 +44,18 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setOpenDropdown(null);
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
   }, []);
 
   // Cleanup timeout on unmount
@@ -62,6 +76,26 @@ export default function Navbar() {
       document.body.style.overflow = "auto";
     };
   }, [mobileOpen]);
+
+  // Dynamic routing: intercept clicks on any 'Start Trading' / 'Trade now' / 'Trade' buttons/links site-wide
+  useEffect(() => {
+    const handler = (e) => {
+      // Only respond to left-click without modifier keys
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const target = e.target.closest('a,button');
+      if (!target) return;
+      const text = (target.textContent || '').trim().toLowerCase();
+      const match = ["start trading", "trade now", "trade"].some((t) => text === t);
+      if (match) {
+        e.preventDefault();
+        setOpenDropdown(null);
+        setMobileOpen(false);
+        navigate('/start-trading');
+      }
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, [navigate]);
 
   const clearCloseTimeout = () => {
     if (closeTimeoutRef.current) {
@@ -176,14 +210,14 @@ export default function Navbar() {
       <div className="max-w-[95%] mx-auto sm:max-w-[90%] lg:max-w-[90%]">
         <div
           className="flex items-center justify-between"
-          style={{ height: "72px" }}
+          style={{ height: "80px" }}
         >
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
               <img
                 src={assets.logo}
-                alt="ThinkMarkets"
-                className="h-10 sm:h-12 md:h-14 lg:h-26 w-auto"
+                alt="Enzo4ex"
+                className="h-[64px] sm:h-16 md:h-18 lg:h-26 w-auto"
                 loading="lazy"
               />
             </Link>
@@ -200,7 +234,7 @@ export default function Navbar() {
                   onMouseLeave={handleNavAreaLeave}
                 >
                   <button className="nav-link flex items-center gap-2 px-4 text-sm font-medium text-white hover:text-purple-300 transition-colors duration-200">
-                    {item}
+                    {item === "Learning" ? "News & Events" : item}
                     {navigationData[item] && (
                       <ChevronDown
                         className={`w-4 transition-transform duration-200 ${
@@ -227,7 +261,16 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
+              ref={mobileToggleRef}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (mobileOpen) {
+                  setOpenDropdown(null);
+                  setMobileOpen(false);
+                } else {
+                  setMobileOpen(true);
+                }
+              }}
               className="p-2 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -268,7 +311,7 @@ export default function Navbar() {
                   aria-expanded={openDropdown === item}
                   aria-haspopup="true"
                 >
-                  <span>{item}</span>
+                  <span>{item === "Learning" ? "News & Events" : item}</span>
                   {navigationData[item] && (
                     <ChevronDown
                       className={`w-5 h-5 transition-transform duration-200 ${

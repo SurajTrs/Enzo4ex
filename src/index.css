@@ -1,3 +1,15 @@
+/* Global overflow and responsive media adjustments */
+html, body, #root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+
+/* App wrapper safety */
+.app {
+  overflow-x: hidden;
+}
 @import "tailwindcss";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";

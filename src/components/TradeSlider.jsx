@@ -1,6 +1,7 @@
 "use client";
 
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { Sparkles, TrendingUp } from "lucide-react";
 
@@ -56,42 +57,64 @@ const tradeOptions = [
 ];
 
 const TradeSlider = () => {
+  const routeMap = {
+    Forex: "/forex",
+    Shares: "/stocks",
+    Metals: "/commodities",
+    Commodities: "/commodities",
+    Indices: "/indices",
+    "Digital Currencies": "/crypto",
+    ETFs: "/etf",
+    Bonds: "/futures",
+  };
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
+    cssEase: "ease-out",
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 3200,
     pauseOnHover: true,
+    pauseOnFocus: true,
+    swipe: true,
+    draggable: true,
+    arrows: true,
+    lazyLoad: "ondemand",
     responsive: [
       {
         breakpoint: 1280,
         settings: {
           slidesToShow: 3,
+          arrows: true,
         },
       },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
+          arrows: false,
         },
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
+          dots: true,
+          arrows: false,
+          centerMode: true,
+          centerPadding: "16px",
         },
       },
     ],
   };
 
   return (
-    <div className="relative max-w-[90%] mx-auto py-12 sm:py-16 lg:py-20">
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20" aria-label="Available markets slider">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-white to-purple-50/30 -z-10" />
-      <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-purple-200/10 to-fuchsia-200/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/40 via-white to-purple-50/20 -z-10" />
+      <div className="pointer-events-none absolute -top-10 -right-10 w-72 h-72 bg-gradient-to-br from-purple-300/10 to-fuchsia-300/10 rounded-full blur-3xl -z-10" />
       
       {/* Header Section */}
       <div className="text-center mb-12 sm:mb-16 lg:mb-20 space-y-6">
@@ -111,26 +134,31 @@ const TradeSlider = () => {
         </p>
       </div>
       {/* Trading Cards Slider */}
-      <Slider {...settings}>
+      <Slider {...settings} aria-roledescription="carousel">
         {tradeOptions.map((item, index) => (
-          <div key={index} className="px-2 group overflow-hidden">
-            <div
-              className={`relative h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[50vh] xl:h-[60vh] flex flex-col justify-between overflow-hidden rounded-lg ${item.textColor}`}
-            >
-              <div className="absolute top-3 sm:top-4 lg:top-6 xl:top-8 left-3 sm:left-4 lg:left-5 z-10 max-w-[80%]">
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 leading-tight">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm lg:text-base leading-relaxed">
-                  {item.desc}
-                </p>
+          <div key={index} className="px-2 sm:px-2 group overflow-hidden">
+            <Link to={routeMap[item.title] || "/"} aria-label={`Explore ${item.title}`} className="block cursor-pointer">
+              <div
+                className={`relative h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[50vh] xl:h-[60vh] flex flex-col justify-between overflow-hidden rounded-xl ring-1 ring-slate-200/40 shadow-sm transition-transform duration-300 ease-out group-hover:-translate-y-1 ${item.textColor}`}
+              >
+                {/* Gradient overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
+
+                <div className="absolute top-3 sm:top-4 lg:top-6 xl:top-8 left-3 sm:left-4 lg:left-5 z-10 max-w-[85%]">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1 leading-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm lg:text-base leading-relaxed opacity-95">
+                    {item.desc}
+                  </p>
+                </div>
+                <img
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full group-hover:scale-110 duration-700 object-cover transition-transform"
+                />
               </div>
-              <img
-                src={item.image || "/placeholder.svg"}
-                alt={item.title}
-                className="absolute inset-0 w-full h-full group-hover:scale-110 duration-700 object-cover transition-all"
-              />
-            </div>
+            </Link>
           </div>
         ))}
       </Slider>

@@ -21,12 +21,31 @@ import ContractSpecs from './pages/ContractSpecs';
 import DynamicLeverage from './pages/DynamicLeverage';
 import Enzo4ex from './pages/Enzo4ex';
 import TradingView from './pages/TradingView';
+import MT4 from './pages/MT4';
+import MT5 from './pages/MT5';
+import AnnouncementDetail from './components/Announcements/AnnouncementDetail';
 
 // Import other pages as needed
   import Indices from './pages/Indices';
 import Commodities from './pages/Commodities';
 import Stocks from './pages/Stocks';
 import Crypto from './pages/Crypto';
+import AccountTypesPage from './pages/AccountTypes';
+import SecurityWithdrawalsPage from './components/Accounts/SecurityWithdrawals';
+import DepositsWithdrawalsPage from './pages/DepositsWithdrawals';
+import DemoPage from './pages/Demo';
+import MarketNewsPage from './pages/MarketNews';
+import EconomicCalendarPage from './pages/EconomicCalendar';
+import AboutPage from './pages/About';
+import Announcements from './components/Announcements/Announcements';
+import AwardDetail from './components/Awards/AwardDetail';
+import Awards from './components/Awards/AwardsHero';
+import ContactPage from './pages/Contact';
+import SupportPage from './pages/Support';
+import LoginPage from './pages/Login';
+import RegisterPage from './pages/Register';
+import ResetPasswordPage from './pages/ResetPassword';
+import StartTradingPage from './pages/StartTrading';
 // import Login from './pages/Login';
 // import Register from './pages/Register';
 
@@ -60,6 +79,27 @@ const App = () => {
           <Route path="enzo4ex" element={<Enzo4ex />} />
           <Route path="Enzo4exTrader" element={<Enzo4ex />} />
           <Route path="tradingview" element={<TradingView />} />
+          <Route path="mt4" element={<MT4 />} />
+          <Route path="mt5" element={<MT5 />} />
+          <Route path="announcements" element={<Announcements />} />
+          <Route path="announcements/:slug" element={<AnnouncementDetail />} />
+          <Route path="awards" element={<Awards />} />
+          <Route path="awards/:slug" element={<AwardDetail />} />
+          <Route path="account-types" element={<AccountTypesPage />} />
+          <Route path="security-withdrawals" element={<SecurityWithdrawalsPage />} />
+          <Route path="deposit-withdraw" element={<DepositsWithdrawalsPage />} />
+          <Route path="demo-account" element={<DemoPage />} />
+          <Route path="market-news" element={<MarketNewsPage />} />
+          <Route path="economic-calendar" element={<EconomicCalendarPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="support" element={<SupportPage />} />
+          <Route path="help" element={<SupportPage />} />
+          <Route path="awards" element={<Awards />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="reset-password" element={<ResetPasswordPage />} />
+          <Route path="start-trading" element={<StartTradingPage />} />
           {/* <Route path="crypto" element={<Crypto />} /> */}
           {/* <Route path="login" element={<Login />} /> */}
           {/* <Route path="register" element={<Register />} /> */}

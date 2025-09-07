@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { navigationData } from "../data/navigationData";
 import footerBg from "../assets/footer1.png";
@@ -13,6 +14,9 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
+  const slugify = (s) => s.toLowerCase().replace(/\s+/g, '-');
+  const fallbackTo = (sectionKey, name, explicit) =>
+    explicit || `/${sectionKey.toLowerCase()}/${slugify(name)}`;
   // Generate footer sections from navigationData
   const getFooterSections = () => {
     const sections = [];
@@ -22,7 +26,7 @@ export default function Footer() {
       sections.push({
         title: "Markets",
         links: navigationData.Markets.sections.flatMap((section) =>
-          section.items.slice(0, 6).map((item) => item.name)
+          section.items.map((item) => ({ label: item.name, to: fallbackTo('markets', item.name, item.link) }))
         ),
       });
     }
@@ -32,7 +36,7 @@ export default function Footer() {
       sections.push({
         title: "Platforms",
         links: navigationData.Platforms.sections.flatMap((section) =>
-          section.items.slice(0, 6).map((item) => item.name)
+          section.items.map((item) => ({ label: item.name, to: fallbackTo('platforms', item.name, item.link) }))
         ),
       });
     }
@@ -42,8 +46,12 @@ export default function Footer() {
       sections.push({
         title: "Learning",
         links: navigationData.Learning.sections
-          .flatMap((section) => section.items.map((item) => item.name))
-          .concat(["Trading guides", "Market analysis", "Educational videos"]),
+          .flatMap((section) => section.items.map((item) => ({ label: item.name, to: fallbackTo('learning', item.name, item.link || '/help') })))
+          .concat([
+            { label: "Trading guides", to: "/help" },
+            { label: "Market analysis", to: "/market-news" },
+            { label: "Educational videos", to: "/help" },
+          ]),
       });
     }
 
@@ -52,7 +60,7 @@ export default function Footer() {
       sections.push({
         title: "Company",
         links: navigationData.Company.sections.flatMap((section) =>
-          section.items.slice(0, 6).map((item) => item.name)
+          section.items.map((item) => ({ label: item.name, to: fallbackTo('company', item.name, item.link) }))
         ),
       });
     }
@@ -62,23 +70,12 @@ export default function Footer() {
       sections.push({
         title: "Support",
         links: navigationData.Support.sections.flatMap((section) =>
-          section.items.map((item) => item.name)
+          section.items.map((item) => ({ label: item.name, to: fallbackTo('support', item.name, item.link || '/support') }))
         ),
       });
     }
 
-    // Legal section (additional)
-    sections.push({
-      title: "Legal",
-      links: [
-        "Terms & Conditions",
-        "Privacy Policy",
-        "Risk Disclaimer",
-        "Legal Documents",
-        "Regulations",
-        "Cookie Policy",
-      ],
-    });
+    // Removed Legal section per request
 
     return sections;
   };
@@ -100,19 +97,19 @@ export default function Footer() {
             <div className="flex items-center">
               <img
                 src={assets.logo}
-                alt="ThinkMarkets"
+                alt="Enzo4ex"
                 className="h-12 md:h-14 lg:h-25 w-35"
               />
             </div>
 
             <p className="text-white text-md text-center lg:text-left">
               Need to get in touch? Contact our client support team 24/7 via{" "}
-              <a
-                href="#"
+              <Link
+                to="/contact"
                 className="text-white hover:text-purple-400 underline transition-colors duration-200"
               >
                 live chat
-              </a>{" "}
+              </Link>{" "}
               .
             </p>
 
@@ -235,34 +232,34 @@ export default function Footer() {
         </div>
 
         {/* Footer Links - Dynamic from navigationData */}
-        <div className="mt-12">
-          <div className="max-w-[90%] mx-auto pl-10">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-between gap-5 text-sm">
+        <div className="mt-10 border-t border-white/10 pt-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-sm">
               {footerSections.map((section, index) => (
-                <div key={index} className="space-y-4">
-                  <h3 className="font-semibold text-white text-base mb-4">
+                <nav key={index} aria-label={section.title} className="space-y-3">
+                  <h3 className="font-semibold text-white/90 text-xs uppercase tracking-wider">
                     {section.title}
                   </h3>
-                  <ul className="space-y-3">
-                    {section.links.slice(0, 8).map((link, linkIndex) => (
+                  <ul className="space-y-2">
+                    {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
-                        <a
-                          href="#"
-                          className="text-white hover:text-purple-400 transition-colors duration-200 text-sm"
+                        <Link
+                          to={link.to}
+                          className="text-white/80 hover:text-white transition-colors duration-150 text-sm underline-offset-4 decoration-white/20 hover:decoration-white"
                         >
-                          {link}
-                        </a>
+                          {link.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </nav>
               ))}
             </div>
           </div>
         </div>
 
         {/* Risk Warning + Legal Disclaimers */}
-        <div className="mt-10 border-t border-gray-700 pt-6 text-xs text-white space-y-4 max-w-[90%] mx-auto">
+        <div className="mt-8 border-t border-white/10 pt-6 text-xs text-white/80 space-y-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p>
             <span className="font-semibold">Risk Warning:</span> Derivative
             products are leveraged products and can result in losses that exceed

@@ -89,6 +89,12 @@ export const navigationData = {
         title: "TRADING",
         items: [
           {
+            name: "Start Trading",
+            icon: "🚀",
+            description: "Professional charting with an integrated order ticket.",
+            link: "/start-trading",
+          },
+          {
             name: "Enzo4exTrader",
             icon: "⭐",
             description: "Our award-winning proprietary CFD trading platform.",
@@ -145,55 +151,25 @@ export const navigationData = {
           },
         ],
       },
-      {
-        title: "TRADING SERVICES",
-        items: [
-          {
-            name: "Signal Centre",
-            icon: "🎯",
-            description: "Discover new opportunities with AI-backed insights.",
-            link: "/signal-centre",
-          },
-          {
-            name: "VPS Hosting",
-            icon: "🖥️",
-            description:
-              "Stay permanently connected and execute trades faster.",
-            link: "/vps",
-          },
-          {
-            name: "ThinkCopy",
-            icon: "📋",
-            description:
-              "The convenient way to copy the strategies of top traders.",
-            link: "/thinkcopy",
-          },
-        ],
-      },
+   
     ],
   },
   Learning: {
     sections: [
       {
-        title: "EDUCATION",
+        title: "MARKET OVERVIEW",
         items: [
           {
-            name: "Trading courses",
-            icon: "🎓",
-            description: "Learn trading from beginner to advanced level.",
-            link: "/courses",
+            name: "Market news",
+            icon: "📰",
+            description: "Stay up to date with the latest market news and insights.",
+            link: "/market-news",
           },
           {
-            name: "Webinars",
-            icon: "🎥",
-            description: "Join live educational sessions with experts.",
-            link: "/webinars",
-          },
-          {
-            name: "Trading guides",
-            icon: "📖",
-            description: "Comprehensive guides to help improve your trading.",
-            link: "/guides",
+            name: "Economic calendar",
+            icon: "📅",
+            description: "Plan your trades around key global financial events.",
+            link: "/economic-calendar",
           },
         ],
       },
@@ -202,20 +178,13 @@ export const navigationData = {
   Company: {
     sections: [
       {
-        title: "THINKMARKETS",
+        title: "ENZO4EX",
         items: [
           {
-            name: "Who we are",
+            name: "About",
             icon: "🏢",
             description: "Learn about our values, expertise and licences.",
             link: "/about",
-          },
-          {
-            name: "Careers",
-            icon: "💼",
-            description:
-              "Join our team to make a difference in the trading world.",
-            link: "/careers",
           },
           {
             name: "Announcements",
@@ -223,25 +192,6 @@ export const navigationData = {
             description:
               "Check out the latest in-house updates and developments.",
             link: "/announcements",
-          },
-          {
-            name: "Trading infrastructure",
-            icon: "🔧",
-            description:
-              "Find out how we deliver you a seamless trading experience.",
-            link: "/infrastructure",
-          },
-          {
-            name: "Past sponsorships",
-            icon: "🤝",
-            description: "Discover all our existing sponsorship agreements.",
-            link: "/sponsorships",
-          },
-          {
-            name: "Security",
-            icon: "🛡️",
-            description: "See how your trading account is protected with us.",
-            link: "/security",
           },
           {
             name: "Awards",
@@ -252,43 +202,7 @@ export const navigationData = {
           },
         ],
       },
-      {
-        title: "PROMOTIONS",
-        items: [
-          {
-            name: "ThinkRewards",
-            icon: "🎁",
-            description:
-              "Discover how you can get rewarded with our loyalty programme.",
-            link: "/thinkrewards",
-          },
-        ],
-      },
-      {
-        title: "PARTNERS & PROGRAMMES",
-        items: [
-          {
-            name: "IBs",
-            icon: "🤝",
-            description:
-              "Become an Introducing Broker and earn generous rebates.",
-            link: "/ibs",
-          },
-          {
-            name: "Refer a friend",
-            icon: "👥",
-            description:
-              "Get rewarded when you introduce your friends to ThinkMarkets.",
-            link: "/refer-friend",
-          },
-          {
-            name: "Institutional solutions",
-            icon: "🏛️",
-            description: "Utilise our advanced technology for your business.",
-            link: "/institutional",
-          },
-        ],
-      },
+      
     ],
   },
   Support: {
@@ -307,19 +221,6 @@ export const navigationData = {
             icon: "❓",
             description: "Find answers to the most frequently asked questions.",
             link: "/help",
-          },
-          {
-            name: "System status",
-            icon: "🔍",
-            description:
-              "Uncover any planned or unplanned outages to our services.",
-            link: "/status",
-          },
-          {
-            name: "Account management",
-            icon: "⚙️",
-            description: "Explore ThinkPortal - our sophisticated trading hub.",
-            link: "/account-management",
           },
         ],
       },

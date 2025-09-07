@@ -18,7 +18,7 @@ export default function StocksThinkTraderPerformance() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 mb-3">
               <span className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-fuchsia-400" />
-              <span className="text-sm">Why trade stocks with ThinkMarkets?</span>
+              <span className="text-sm">Why trade stocks with Enzo4ex?</span>
             </div>
             <h3 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">Built for speed, reliability and insight.</h3>
             <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 text-purple-100/90">

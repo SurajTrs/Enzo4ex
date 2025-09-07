@@ -33,7 +33,7 @@ export default function ThinkTraderPerformance() {
               <span className="text-sm font-medium">Platform</span>
             </div>
             <h3 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900">
-              ThinkTrader: Precision‑engineered for performance
+              Enzo4exTrader: Precision‑engineered for performance
             </h3>
             <p className="mt-4 text-gray-600 max-w-xl">
               Experience a platform designed for speed, resilience and clarity. Advanced charting, multi‑device sync and intuitive order management give you an edge in fast markets.

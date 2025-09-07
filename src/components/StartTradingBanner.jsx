@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { 
   Smartphone, 
   FileText, 
@@ -88,10 +89,10 @@ export default function StartTradingBanner() {
 
         {/* Compact CTA Section */}
         <div className="text-center mt-6 sm:mt-8 px-2">
-          <button className="group inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-violet-600 text-white font-bold rounded-lg sm:rounded-xl shadow-lg sm:shadow-xl shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105">
+          <Link to="/register" aria-label="Open an account now" className="group inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-violet-600 text-white font-bold rounded-lg sm:rounded-xl shadow-lg sm:shadow-xl shadow-purple-500/20 hover:shadow-purple-500/30 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105">
             <span className="text-sm sm:text-base">Open Account Now</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-0.5 sm:group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -17,45 +17,82 @@ export default function Footer() {
   const slugify = (s) => s.toLowerCase().replace(/\s+/g, '-');
   const fallbackTo = (sectionKey, name, explicit) =>
     explicit || `/${sectionKey.toLowerCase()}/${slugify(name)}`;
-  // Generate footer sections from navigationData
   const getFooterSections = () => {
     const sections = [];
 
-    // Markets section
     if (navigationData.Markets) {
       sections.push({
         title: "Markets",
         links: navigationData.Markets.sections.flatMap((section) =>
-          section.items.map((item) => ({ label: item.name, to: fallbackTo('markets', item.name, item.link) }))
+          section.items
+            .filter((item) =>
+              ![
+                'ETFs',
+                'Futures',
+                'Gold',
+                'Synthetic indices',
+                'Classic leverage',
+                'Dynamic leverage tiers',
+              ].includes(item.name)
+            )
+            .map((item) => ({ label: item.name, to: fallbackTo('markets', item.name, item.link) }))
         ),
+      });
+
+      // Premium Markets (manual entries)
+      sections.push({
+        title: "Premium Markets",
+        links: [
+          { label: "ETFs", to: "/etf" },
+          { label: "Futures", to: "/futures" },
+          { label: "Gold", to: "/gold" },
+          { label: "Synthetic indices", to: "/synthetic-indices" },
+          { label: "Classic leverage", to: "/classic-leverage" },
+          { label: "Dynamic leverage tiers", to: "/dynamic-leverage" },
+        ],
       });
     }
 
-    // Platforms section
     if (navigationData.Platforms) {
       sections.push({
         title: "Platforms",
         links: navigationData.Platforms.sections.flatMap((section) =>
-          section.items.map((item) => ({ label: item.name, to: fallbackTo('platforms', item.name, item.link) }))
+          section.items
+            .filter((item) =>
+              ![
+                'Account types',
+                'Deposit & withdraw',
+                'Dynamic leverage',
+                'Demo account',
+              ].includes(item.name)
+            )
+            .map((item) => ({ label: item.name, to: fallbackTo('platforms', item.name, item.link) }))
         ),
+      });
+
+      // Premium Platforms (manual entries)
+      sections.push({
+        title: "Premium Platforms",
+        links: [
+          { label: "Account types", to: "/account-types" },
+          { label: "Deposit & withdraw", to: "/deposit-withdraw" },
+          { label: "Dynamic leverage", to: "/dynamic-leverage" },
+          { label: "Demo account", to: "/demo-account" },
+        ],
       });
     }
 
-    // Learning section
     if (navigationData.Learning) {
       sections.push({
         title: "Learning",
         links: navigationData.Learning.sections
           .flatMap((section) => section.items.map((item) => ({ label: item.name, to: fallbackTo('learning', item.name, item.link || '/help') })))
           .concat([
-            { label: "Trading guides", to: "/help" },
             { label: "Market analysis", to: "/market-news" },
-            { label: "Educational videos", to: "/help" },
           ]),
       });
     }
 
-    // Company section
     if (navigationData.Company) {
       sections.push({
         title: "Company",
@@ -65,7 +102,6 @@ export default function Footer() {
       });
     }
 
-    // Support section
     if (navigationData.Support) {
       sections.push({
         title: "Support",
@@ -75,7 +111,6 @@ export default function Footer() {
       });
     }
 
-    // Removed Legal section per request
 
     return sections;
   };
@@ -162,90 +197,60 @@ export default function Footer() {
         </div>
 
         {/* Payment Methods */}
-        <div className="mt-8 max-w-[90%] mx-auto">
-          <p className="text-center text-white mb-4">Payment methods</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.bankwire}
-                alt="Bankwire"
-                className=" px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.visa}
-                alt="Visa"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.masterCard}
-                alt="MasterCard"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.skrill}
-                alt="Skrill"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.neteller}
-                alt="Neteller"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.swift}
-                alt="Swift"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.applePay}
-                alt="Apple Pay"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.gpay}
-                alt="Google Pay"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-            <div className="w-1/10 border border-white/9 rounded-lg flex justify-center items-center">
-              <img
-                src={assets.crypto}
-                alt="Crypto"
-                className="  px-2 py-5 rounded-lg"
-              />
-            </div>
-          </div>
-        </div>
+        <section aria-labelledby="payment-methods-heading" className="mt-8 max-w-[90%] mx-auto">
+          <h2 id="payment-methods-heading" className="text-center text-white mb-3 text-xs font-semibold uppercase tracking-[0.22em]">Payment methods</h2>
+          <div className="mx-auto mb-6 h-px w-28 bg-white/20" />
+          {(() => {
+            const paymentMethods = [
+              { src: assets.bankwire, alt: 'Bank Wire' },
+              { src: assets.visa, alt: 'Visa' },
+              { src: assets.masterCard, alt: 'MasterCard' },
+              { src: assets.skrill, alt: 'Skrill' },
+              { src: assets.neteller, alt: 'Neteller' },
+              { src: assets.swift, alt: 'SWIFT' },
+              { src: assets.applePay, alt: 'Apple Pay' },
+              { src: assets.gpay, alt: 'Google Pay' },
+              { src: assets.crypto, alt: 'Crypto' },
+            ];
+            return (
+              <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-3 sm:p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-9 gap-3 sm:gap-4">
+                  {paymentMethods.map((m, i) => (
+                    <li key={i} className="list-none">
+                      <div
+                        className="h-16 md:h-20 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center shadow-sm transition duration-200 hover:bg-white/20 hover:border-white/30 hover:shadow-[0_0_0_3px_rgba(168,85,247,0.35),0_8px_20px_rgba(168,85,247,0.15)] focus-within:ring-2 focus-within:ring-purple-400/40"
+                        title={m.alt}
+                      >
+                        <img
+                          src={m.src}
+                          alt={m.alt}
+                          loading="lazy"
+                          className="max-h-10 md:max-h-12 object-contain opacity-100 contrast-110 brightness-105 drop-shadow-sm"
+                        />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })()}
+        </section>
 
         {/* Footer Links - Dynamic from navigationData */}
         <div className="mt-10 border-t border-white/10 pt-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-7 gap-x-8 gap-y-10 items-stretch text-sm">
               {footerSections.map((section, index) => (
-                <nav key={index} aria-label={section.title} className="space-y-3">
-                  <h3 className="font-semibold text-white/90 text-xs uppercase tracking-wider">
+                <nav key={index} aria-label={section.title} className="h-full flex flex-col">
+                  <h3 className="mb-3 font-semibold text-white/90 text-xs uppercase tracking-wider">
                     {section.title}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 leading-relaxed">
                     {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
                         <Link
                           to={link.to}
-                          className="text-white/80 hover:text-white transition-colors duration-150 text-sm underline-offset-4 decoration-white/20 hover:decoration-white"
+                          className="text-white/80 hover:text-white transition-colors duration-150 text-sm underline-offset-4 decoration-white/20 hover:decoration-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded"
                         >
                           {link.label}
                         </Link>

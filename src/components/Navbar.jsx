@@ -77,7 +77,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Dynamic routing: intercept clicks on any 'Start Trading' / 'Trade now' / 'Trade' buttons/links site-wide
+  // Dynamic routing: intercept clicks on common CTA buttons/links site-wide
   useEffect(() => {
     const handler = (e) => {
       // Only respond to left-click without modifier keys
@@ -85,12 +85,23 @@ export default function Navbar() {
       const target = e.target.closest('a,button');
       if (!target) return;
       const text = (target.textContent || '').trim().toLowerCase();
-      const match = ["start trading", "trade now", "trade"].some((t) => text === t);
-      if (match) {
+      const routes = {
+        "start trading": "/start-trading",
+        "trade now": "/start-trading",
+        "trade": "/start-trading",
+        "or try demo": "/demo-account",
+        "create account": "/register",
+        "connect now": "/login",
+        "access signals": "/market-news",
+        "start simulation": "/demo-account",
+        "open account now": "/register",
+      };
+      const to = routes[text];
+      if (to) {
         e.preventDefault();
         setOpenDropdown(null);
         setMobileOpen(false);
-        navigate('/start-trading');
+        navigate(to);
       }
     };
     document.addEventListener('click', handler);

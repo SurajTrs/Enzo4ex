@@ -141,7 +141,7 @@ export default function Navbar() {
     if (!menuData) return null;
 
     return (
-      <div className="fixed inset-x-0 z-40 top-16">
+      <div className="fixed inset-x-0 z-40 top-20">
         <div className="py-1">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div
@@ -212,10 +212,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`text-white fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_rgba(88,28,135,0.25)] bg-gradient-to-r from-purple-900/60 via-fuchsia-800/55 to-purple-950/60 ${
-        isScrolled
-          ? "bg-gradient-to-r from-purple-950/70 via-fuchsia-900/65 to-purple-950/75"
-          : ""
+      className={`text-gray-900 fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl border-b border-gray-200 bg-white/70 ${
+        isScrolled ? "bg-white/90 shadow-md" : "shadow-sm"
       }`}
     >
       <div className="max-w-[95%] mx-auto sm:max-w-[90%] lg:max-w-[90%]">
@@ -224,17 +222,20 @@ export default function Navbar() {
           style={{ height: "80px" }}
         >
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <img
-                src={assets.logo}
-                alt="Enzo4ex"
-                className="h-[64px] sm:h-16 md:h-18 lg:h-26 w-auto"
-                loading="lazy"
-              />
+            <Link to="/" className="flex-shrink-0 p-0 m-0 block leading-none">
+              {/* All breakpoints: crop intrinsic transparent padding so visible logo fills navbar height */}
+              <div className="h-20 overflow-hidden leading-none flex items-center">
+                <img
+                  src={assets.logo}
+                  alt="Enzo4ex"
+                  className="h-[80px] w-auto p-0 m-0 block object-cover"
+                  loading="lazy"
+                />
+              </div>
             </Link>
           </div>
 
-          {/* Desktop Menu - unchanged */}
+          {/* Desktop Menu - unchanged (only trigger colors adjusted for light navbar) */}
           <div className="hidden lg:block" ref={navContainerRef}>
             <div className="flex items-center gap-1">
               {navItems.map((item) => (
@@ -244,11 +245,11 @@ export default function Navbar() {
                   onMouseEnter={() => handleNavItemEnter(item)}
                   onMouseLeave={handleNavAreaLeave}
                 >
-                  <button className="nav-link flex items-center gap-2 px-4 text-sm font-medium text-white hover:text-purple-300 transition-colors duration-200">
+                  <button className="nav-link group flex items-center gap-2 px-4 text-sm font-medium text-gray-800 hover:text-purple-700 transition-colors duration-200">
                     {item === "Learning" ? "News & Events" : item}
                     {navigationData[item] && (
                       <ChevronDown
-                        className={`w-4 transition-transform duration-200 ${
+                        className={`w-4 text-gray-700 group-hover:text-purple-600 transition-transform duration-200 ${
                           openDropdown === item ? "rotate-180" : ""
                         }`}
                       />
@@ -261,7 +262,7 @@ export default function Navbar() {
 
           {/* Right side - Desktop */}
           <div className="hidden lg:flex items-center justify-center gap-5">
-            <Link to="/login" className="btn-secondary px-6 py-2 text-sm font-medium text-white rounded-full border border-white/20 hover:bg-white/20 transition-all duration-200 inline-block text-center">
+            <Link to="/login" className="px-6 py-2 text-sm font-medium text-gray-800 hover:text-purple-700 rounded-full border border-gray-300 hover:bg-gray-100 transition-all duration-200 inline-block text-center">
               Login
             </Link>
             <Link to="/register" className="btn px-6 py-2 text-sm font-bold text-white rounded-full bg-purple-600 hover:bg-purple-700 shadow-lg shadow-purple-500/20 transition-all duration-200 inline-block text-center">
@@ -282,7 +283,7 @@ export default function Navbar() {
                   setMobileOpen(true);
                 }
               }}
-              className="p-2 text-gray-300 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded"
+              className="p-2 text-gray-700 hover:text-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >

@@ -131,7 +131,7 @@ button {
 }
 
 .nav-link:hover {
-  color: #ffffff;
+  color: inherit; /* allow component-level gradients (bg-clip-text) to show */
 }
 
 .nav-link::after {
@@ -141,7 +141,7 @@ button {
   height: 2px;
   bottom: -4px;
   left: 50%;
-  background-color: #ffffff;
+  background-color: #9333EA; /* purple-600 */
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }

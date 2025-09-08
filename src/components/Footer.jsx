@@ -130,11 +130,13 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-8 border-b border-gray-600">
             {/* Logo */}
             <div className="flex items-center">
-              <img
-                src={assets.logo}
-                alt="Enzo4ex"
-                className="h-12 md:h-14 lg:h-25 w-35"
-              />
+              <div className="bg-white rounded-xl p-2 shadow-sm">
+                <img
+                  src={assets.logo}
+                  alt="Enzo4ex"
+                  className="h-12 md:h-14 lg:h-25 w-35 object-contain"
+                />
+              </div>
             </div>
 
             <p className="text-white text-md text-center lg:text-left">
@@ -280,47 +282,19 @@ export default function Footer() {
           </p>
 
           <p>
-            Enzo4ex Global Markets Int Limited is authorised and regulated by the
-            Financial Services Authority, Firm Reference Number SD060. Registered
-            address: CT House, Office 9B, Providence, Mahe, Seychelles. Company
-            number 8424818-1. Clients will engage with services offered by Enzo4ex
-            Global Markets Int Limited, unless otherwise stated, please see the
-            legal documents, including the Terms & Conditions for specific
-            details.
+  Enzo4ex Global Markets Int Limited is authorised and regulated by the
+  Financial Services Authority. Clients will engage with services offered by Enzo4ex
+  Global Markets Int Limited, unless otherwise stated, please see the
+  legal documents, including the Terms & Conditions for specific
+  details.
+</p>
+
+          <p>
+          The information on this site is not directed to residents of the United States, Canada, Bermuda, the European Union, Australia, United Kingdom, Russia and Japan and is not intended for distribution to, or use by, any person in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.
           </p>
 
           <p>
-            Enzo4ex Global Markets (STL) Limited is registered in Saint Lucia,
-            registration number: 2023-00272. Registered address: Ground Floor, the
-            Sotheby Building, Rodney Village, Rodney Bay, Gros-Islet, Saint Lucia.
-            Please see the legal documents, including the Terms & Conditions for
-            specific details.
-          </p>
-
-          <p>
-            Enzo4ex (Payments) Limited is registered in the United Kingdom,
-            Company number 10537331. Registered address: G07, 35 New Broad St,
-            London EC2M 1NH.
-          </p>
-
-          <p>
-            Enzo4ex UK Ltd is registered in the United Kingdom, Company number
-            11054653. Registered address: G07, 35 New Broad St, London EC2M 1NH.
-          </p>
-
-          <p>
-            The information on this site is not directed to residents of the
-            United States, Canada, Bermuda, the European Union, Australia, United
-            Kingdom, Russia and Japan and is not intended for distribution to, or
-            use by, any person in any country or jurisdiction where such
-            distribution or use would be contrary to local law or regulation.
-          </p>
-
-          <p>
-            2025 This website and technology/platform services are owned and
-            operated by TF Global Markets (Aust) Pty Limited, with Registered
-            address: Level 14, 333 Collins Street, Melbourne VIC Australia 3000.
-            ABN: 69158361561 (part of the Enzo4ex Group).
+          2025 This website and technology/platform services are owned and operated by Enzo4ex Group.
           </p>
         </div>
       </div>
